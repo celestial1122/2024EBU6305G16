@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Miss Peregrine's Home for Peculiar Children</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+    
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lora', serif;
+        }
+        nav {
+            background-color: #adadad;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            display: inline-block;
+            font-weight: 1000;
+        }
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 80px;
+            font-family: 'Lobster', cursive;
+        }
+        .banner-image {
+            display: flex; /* 使用Flexbox来对齐子元素 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中，如果需要的话 */
+            width: 100%; /* 确保容器占满全宽 */
+            margin-top: 50px;
+        }
+
+        .banner-image img {
+            width: 100%; /* 图片宽度设置为100%，但不会超过容器宽度 */
+            max-width: 70%; /* 图片最大宽度限制为700px */
+            height: auto; /* 高度自动调整，保持图片宽高比 */
+            border-radius: 20px; /* 设置圆角边框 */
+            margin: auto; /* 如果Flexbox无效，这将帮助图片水平居中 */
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column; /* 使子元素垂直排列 */
+            align-items: center; /* 水平居中子元素 */
+            width: 80%; /* 容器宽度 */
+            padding: 20px;
+        }
+
+        .character-profile {
+            display: flex;
+            width: 100%;
+            margin-bottom: 40px; /* Adds space between character profiles */
+        }
+        .character-image {
+            flex-basis: 450px;
+            flex-shrink: 0;
+            border-radius: 20px; /* 圆角边框 */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* 阴影效果 */
+            margin-right: 20px; /* Adds space between image and text */
+            margin-left: 160px;
+        }
+        .character-image img {
+            width: 450px;
+            height: 450px;
+            border-radius: 20px;
+        }   
+        .character-text {
+            flex-grow: 1;
+            padding: 0 20px; /* Adds padding around the text */
+        }
+        .character-name {
+            font-family: 'Lobster', cursive;
+            font-size: 24px;
+        }
+
+        .character-description {
+    
+            font-family: 'Lora', serif; /* 字体样式 */
+            font-size: 16px; /* 字号 */
+            max-width: 40%;
+            margin-left: 50px;
+   
+        }
+        .designer-image img {
+            width: calc(100% - 40px); /* Full width of the page */
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>Miss Peregrine's Home for Peculiar Children</h1>
+    </div>
+
+    <nav>
+        <a href="Homepage.html">Homepage</a>
+        <a href="Story Summary.html">Story Summary</a>
+        <a href="Character Role.html">Character Role</a>
+        <a href="Behind The Scenes.html">Behind The Scenes</a>
+        <a href="Comments.html">Comments</a>
+    </nav>
+
+    <div class="banner-image">
+        <img src="https://img1.doubanio.com/view/photo/l/public/p2408763798.webp" alt="Banner Image">
+    </div>
+    <br><br><br><br>
+    <div class="character-container">
+        <!-- Repeat this block for each character -->
+
+        <div class="character-profile">
+            <div class="character-image">
+                <img src="https://s2.loli.net/2024/04/11/hj84ULbzpPmZsKI.jpg" alt="Character Image">
+            </div>
+            <div class="character-description">
+                <h2 class="character-name">Jacob Portman (Asa Butterfield)</h2>
+                <p>Just your average American teen until life went “Hold my beer.” Post-grandpa's spooky demise, Jacob's life gets a fantasy reboot. Now he sees monsters that are RSVP'ed to the “Invisible to Normals” party. Protector of the peculiar? You bet.</p>
+            </div>
+        </div>
+
+        <div class="character-profile">
+            <div class="character-image">
+                <img src="https://s2.loli.net/2024/04/11/3ySamRqHtNFWOvC.jpg" alt="Character Image">
+            </div>
+            <div class="character-description">
+                <h2 class="character-name">Miss Peregrine (Eva Green)</h2>
+                <p>Bird woman, time-loop manager, protector of the peculiar. Miss Peregrine's got the whole package. Her daily routine includes keeping kids safe and bending time -- casual stuff.</p>
+            </div>
+        </div>
+
+        <div class="character-profile">
+            <div class="character-image">
+                <img src="https://s2.loli.net/2024/04/11/LbyIVazotAlNquC.jpg" alt="Character Image">
+            </div>
+            <div class="character-description">
+                <h2 class="character-name">Olivia  Lively (Lauren McCrostie)</h2>
+                <p>What's Her Deal?  Meet Olivia, a girl who never needs a ladder.  Why?  She's got the power of levitation, making gravity her plaything.  School high jump champ without even trying.</p>
+            </div>
+        </div>
+
+        <div class="character-profile">
+            <div class="character-image">
+                <img src="https://s2.loli.net/2024/04/11/sr26TtzmLJOSZXD.jpg" alt="Character Image">
+            </div>
+            <div class="character-description">
+                <h2 class="character-name">Emma Bloom (Ella Purnell)</h2>
+                <p>Emma, wielding fire like it's her personal plaything, is the squad's unofficial captain.  Bravery?  Check.  Loyalty?  Double check.</p>
+            </div>
+        </div>
+
+        <!-- End of character profile block -->
+    </div>
+
+    <div class="designer-image">
+        <img src="https://s2.loli.net/2024/04/11/Nh3MGxH4i6DdAKJ.png" alt="Webpage Designer Image">
+    </div>
+</body>
+</html>
