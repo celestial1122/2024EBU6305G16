@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Miss Peregrine's Home for Peculiar Children</title>
     <!-- Link to Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
     <style>
         /* Existing styles */
         body {
@@ -103,41 +104,36 @@
         .swiper-slide {
             text-align: center;
             font-size: 18px;
-            background: #945c4bf1;
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
+            width: auto; /* Width should be auto or set to the width of the content */
+            /* Optional: for centered content within each slide */
             display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
             justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
             align-items: center;
         }
-    
+         
         .swiper-container {
-            width: 100%;  /* Full width to ensure it is responsive */
-            height: auto; /* Height is automatic, depending on the image */
-            margin: 20px auto; /* Adds space around the carousel */
+            width: 100%;
+            /* max-width: 800px; Adjust this as necessary to fit your design */
+            margin: auto;
+            overflow: hidden; /* Prevents overflow of slides */
         }
 
         .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Ensures the image is centered */
+            display: block; /* Ensures slides do not flex */
+            width: 100%;
         }
+
+
 
         .swiper-slide img {
             max-width: 100%; /* Limits image width to prevent overflow */
+            height: auto; /* Height is automatic*/
             max-height: 500px; /* Adjust based on your preference to keep images the same size */
             object-fit: cover; /* Covers the slide area while maintaining aspect ratio */
             border-radius: 15px; /* Rounded corners */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
         }
+
         .before-after-slider {
             position: relative;
             width: 100%;
@@ -167,7 +163,7 @@
     <nav>
         <a href="homepage.html">Homepage</a>
         <a href="Story Summary.html">Story Summary</a>
-        <a href="#">Character Role</a>
+        <a href="character_role.html">Character Role</a>
         <a href="behind the scene.html">Behind The Scenes</a>
         <a href="Comment.html">Comments</a>
     </nav>
@@ -229,9 +225,18 @@
         </div>
     </div>
     <!-- Link to Swiper's CSS and JS-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
+
+      
+    <!-- Correct link to Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- Script for Swiper's JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    
     <!-- Swiper Carousel for Three Images -->
     <div class="swiper-container mySecondSwiper">
         <div class="swiper-wrapper">
@@ -272,13 +277,15 @@
     </div> -->
 
     <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> 
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var mySecondSwiper = new Swiper('.mySecondSwiper', {
                 slidesPerView: 1, // Ensure only one slide is visible at a time
                 loop: true,
-                spaceBetween: 30, // Adjust space between slides
+                spaceBetween: 20, // Adjust space between slides
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -288,11 +295,14 @@
                     prevEl: '.swiper-button-prev',
                 },
                 autoplay: {
-                    delay: 2500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 },
             });
         });
+                
+
+
         // document.addEventListener('DOMContentLoaded', function() {
         //     const resizer = document.querySelector('.resizer');
         //     const beforeImage = document.querySelector('.before-image');
