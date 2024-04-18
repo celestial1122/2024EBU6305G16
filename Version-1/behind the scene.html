@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Miss Peregrine's Home for Peculiar Children</title>
+    <!-- Link to Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <style>
+        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif; /* You can change this font */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #945c4bf1; /* Light grey background */
+            color: #f2e277; /* Darker text for better readability */
+        }
+        nav {
+            background-color: #adadad;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 80px;
+            font-family: 'Georgia', serif; /* Example of changing fonts */
+        }
+        .text-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 800px; /* Limits the width of content */
+            background-color: #ffffff; /* White background for content areas */
+            padding: 20px;
+            border-radius: 8px; /* Optional: adds rounded corners */
+            box-shadow: 0 2px 5px rgba(75, 8, 99, 0.1); /* Optional: adds subtle shadow */
+        }
+        .text-section .description {
+            flex: 1;
+            color: #35105d; /* Blue text color */
+        }
+        .image-placeholder img {
+            max-width: 300px;  /* maximum width of images in text sections */
+            height: auto;  /* maintain aspect ratio */
+            border-radius: 5px;  /* rounded corners */
+        }
+
+        .movie-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        } 
+        .movie-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        } 
+        .image1 {
+             padding: 20px; 
+        }
+        .image1 img{
+            max-width: 100%;
+            height: auto;
+            max-width: 700px;
+            border-radius: 20px;
+        }
+
+        .movie-description {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 700px;
+            line-height: 150%;
+        }
+
+        .video-container {
+        overflow: hidden;
+        /* 16:9 aspect ratio */
+        padding-top: 56.25%;
+        position: relative;
+    }
+
+        .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            width: auto; /* Width should be auto or set to the width of the content */
+            /* Optional: for centered content within each slide */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         
+        .swiper-container {
+            width: 100%;
+            /* max-width: 800px; Adjust this as necessary to fit your design */
+            margin: auto;
+            overflow: hidden; /* Prevents overflow of slides */
+        }
+
+        .swiper-slide {
+            display: block; /* Ensures slides do not flex */
+            width: 100%;
+        }
+
+
+
+        .swiper-slide img {
+            max-width: 100%; /* Limits image width to prevent overflow */
+            height: auto; /* Height is automatic*/
+            max-height: 500px; /* Adjust based on your preference to keep images the same size */
+            object-fit: cover; /* Covers the slide area while maintaining aspect ratio */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+        }
+
+        .before-after-slider {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+        }
+
+        .before-image img, .after-image img {
+            display: block;
+            height: 100%;
+        }
+
+        .resizer {
+            background-color: #FFF;
+            width: 5px;
+            cursor: ew-resize;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="top">
+        <h1>Miss Peregrine's Home for Peculiar Children</h1>
+    </div>
+
+    <nav>
+        <a href="homepage.html">Homepage</a>
+        <a href="Story Summary.html">Story Summary</a>
+        <a href="character_role.html">Character Role</a>
+        <a href="behind the scene.html">Behind The Scenes</a>
+        <a href="Comment.html">Comments</a>
+    </nav>
+
+     <!-- Top movie image -->
+     <div class="movie-content">
+        <div class="movie-image">
+            <img src="https://img1.doubanio.com/view/photo/l/public/p2408763798.webp" alt="电影图片描述">
+        </div>
+    </div>
+<!-- Insert the before-and-after slider HTML here -->
+
+    <!-- Text section 1 -->
+    <div class="text-section">
+        <div class="description">
+            <h2>Unraveling the Peculiarities of Miss Peregrine’s Home</h2>
+            <p>
+                If you’ve seen Miss Peregrine’s Home for Peculiar Children, you’re well aware of the extraordinary abilities that set the peculiar children apart from others. From a boy who exhales bees to a girl with a monstrous, tooth-lined maw hidden in her neck, these peculiarities are brought to life through astounding visual effects. Green screens and CGI effects were used extensively throughout the film, creating a unique and mesmerizing experience for audiences.
+            </p>
+            <p>
+                Let’s take a closer look at some behind-the-scenes images that reveal the magic behind this peculiar film.
+            </p>
+        </div>
+        <!-- Video Embed Section -->
+        <div class="video-block featured ratio-16-9 active">
+            <div class="video-player">
+                <iframe src="https://www.youtube.com/embed/21BruTEDMM0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text section 2 with linked image -->
+    <div class="text-section">
+        <div class="description">
+            <h2>Costume Design</h2>
+            <p>
+                Colleen Atwood's costume design beautifully marries the stern elegance of Victorian fashion with the fantastical elements of the peculiar children, maintaining historical accuracy with 1943 period attire. Her work with Eva Green’s costumes stands out for their lavish yet austere beauty, embodying whimsy and tradition.
+            </p>
+        </div>
+        <div class="image-placeholder">
+            <a href="https://sm.ms/image/wqdRB5vS2ya4c9s" target="_blank">
+                <img src="https://s2.loli.net/2024/04/12/wqdRB5vS2ya4c9s.png" alt="Costume Design Image">
+            </a>
+        </div>
+    </div>
+
+    <!-- Text section 3 with linked image -->
+    <div class="text-section">
+        <div class="description">
+            <h2>The Film's Music</h2>
+            <p>
+                For the film's music, Michael Higham, transitioning from music editor to composer, collaborates with Matthew Margeson to craft a score that traverses time, encapsulating the peculiars' wonder. Their composition masterfully blends adventure, excitement, and suspense, aligning perfectly with the film's narrative and visual storytelling, marking a high point in Tim Burton's cinematic scores.
+            </p>
+        </div>
+        <div class="image-placeholder">
+            <a href="https://sm.ms/image/AU6HnFktlTicmBr" target="_blank">
+                <img src="https://s2.loli.net/2024/04/12/AU6HnFktlTicmBr.png" alt="Film's Music Image">
+            </a>
+        </div>
+    </div>
+    <!-- Link to Swiper's CSS and JS-->
+        <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+
+
+      
+    <!-- Correct link to Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- Script for Swiper's JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    
+    <!-- Swiper Carousel for Three Images -->
+    <div class="swiper-container mySecondSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://s2.loli.net/2024/04/12/uwUXBlEJm3j74Zd.png" alt="First Image Description">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://s2.loli.net/2024/04/12/DjS39enuopEQfKJ.png" alt="Second Image Description">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://s2.loli.net/2024/04/12/8mwFypaHe2IdjlJ.png" alt="Third Image Description">
+            </div>
+        </div>
+        <!-- Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- Navigation buttons -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+    </div>
+    <!-- Swiper Container for Before-and-After Images -->
+    <!-- <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="before-after-slider">
+                    <div class="before-image" style="width: 50%; overflow: hidden;">
+                        <img src="https://media.mpcvfx.com/app/uploads/2022/04/140_ba_1080_before1056.jpeg" alt="before" style="width: 100%;" />
+                    </div>
+                    <div class="after-image" style="position: absolute; top: 0; left: 0; width: 100%; overflow: hidden;">
+                        <img src="https://media.mpcvfx.com/app/uploads/2022/04/140_ba_1080_v02021056.jpeg" alt="After" style="position: absolute; top: 0; left: 0; width: 100%;" />
+                    </div>
+                    <div class="resizer" style="position: absolute; top: 0; left: 50%; width: 10px; height: 100%; cursor: ew-resize; background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div> -->
+
+    <!-- Swiper JS -->
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var mySecondSwiper = new Swiper('.mySecondSwiper', {
+                slidesPerView: 1, // Ensure only one slide is visible at a time
+                loop: true,
+                spaceBetween: 20, // Adjust space between slides
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+                
+
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const resizer = document.querySelector('.resizer');
+        //     const beforeImage = document.querySelector('.before-image');
+        //     let isResizing = false;
+
+        //     resizer.addEventListener('mousedown', function(e) {
+        //         isResizing = true;
+        //         document.addEventListener('mousemove', handleMouseMove);
+        //         document.addEventListener('mouseup', () => {
+        //             isResizing = false;
+        //             document.removeEventListener('mousemove', handleMouseMove);
+        //         });
+        //     });
+
+        //     function handleMouseMove(e) {
+        //         const dimensions = beforeImage.getBoundingClientRect();
+        //         const x = e.clientX - dimensions.left; // Calculate new position of resizer
+        //         if (x > 0 && x < dimensions.width) {
+        //             beforeImage.style.width = `${x}px`;
+        //         }
+        //     }
+        // });
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var swiper = new Swiper('.swiper-container', {
+        //         loop: true,
+        //         pagination: {
+        //             el: '.swiper-pagination',
+        //             clickable: true
+        //         },
+        //         navigation: {
+        //             nextEl: '.swiper-button-next',
+        //             prevEl: '.swiper-button-prev'
+        //         },
+        //     });
+
+
+
+    </script>
+    
+
+    
+    
+    <div class="movie-content">
+        <a href="https://sm.ms/image/VIkOrExDlTMoKY5" target="_blank">
+            <img src="https://s2.loli.net/2024/04/06/VIkOrExDlTMoKY5.png" alt="Promotional Content Image">
+        </a>
+    </div>
+
+    </body>
+</html>
+
+    
+
+
+    
