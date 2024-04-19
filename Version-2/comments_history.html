@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Comments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        nav {
+        background-color: #adadad;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        display: inline-block;
+        font-weight: 1000;
+    }
+        .comments-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .comment {
+            border-bottom: 1px solid #e1e1e1;
+            padding: 15px 0;
+        }
+        .comment:last-child {
+            border-bottom: 0;
+        }
+        .comment-score {
+            color: #888;
+            font-size: 14px;
+        }
+        .comment-text {
+            margin: 5px 0;
+        }
+        .comment-date {
+            text-align: right;
+            color: #aaa;
+            font-size: 12px;
+        }
+        img.full-width {
+            width: 100%;
+            display: block; 
+            height: auto;
+            margin-bottom: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <!-- 菜单栏 -->
+<nav>
+    <a href="homepage.html">Homepage</a>
+    <a href="example.html">Story Summary</a>
+    <a href="#">Character Role</a>
+    <a href="#">Behind The Scenes</a>
+    <a href="Comment.html">Comments</a>
+</nav>
+    <img src="https://s2.loli.net/2024/04/15/dpCETUQV8HGlqN2.jpg" alt="Top Image" class="full-width">
+    <div class="comments-container">
+        <h1>History Comments</h1>
+        <div id="comments-display"></div>
+    </div>
+    <img src="https://s2.loli.net/2024/04/06/VIkOrExDlTMoKY5.png" alt="Bottom Image" class="full-width">
+
+    
+    <script>
+        window.onload = function() {
+            initializeComments();
+            displayComments();
+        };
+
+        function initializeComments() {
+            if (!localStorage.getItem('commentsList')) {
+                // 预设的评论数据
+                var initialComments = [
+                    {
+                        score: "6",
+                        comment: "The editing is somewhat lacking in the climax. Although the story's moral is somewhat trite, the plot is relatively rich, and the construction of the timeline at the end may require a second viewing to understand. In this film, Burton's style is primarily embodied through the character Enoch.",
+                        date: "2024.4.13 13:15:08"
+                    },
+                    {
+                        score: "8",
+                        comment: "Although I like the fantasy setting, and Eva Green is captivating, it seems that Tim Burton's films are more suited to Helena Bonham Carter... The film fails to break away from the clichéd children's movie formula, with adults still appearing more foolish than the children, the main villain doesn't play a significant role, and the climax is somewhat lackluster. However, the skeleton battle is the most exciting part of the film.",
+                        date: "2024.4.14 09:37:49"
+                    },
+                    {
+                        score: "2",
+                        comment: "High expectations led to disappointment. The trailer seems to contain all the highlights of the movie. The storyline is mediocre, and the layout is ordinary. The fantasy elements are rather childish, more suitable for children and lacking in depth. The male lead is unappealing, appears confused, fails to inspire his companions, and is even somewhat off-putting.",
+                        date: "2024.4.14 22:01:32"
+                    },
+                    {
+                        score: "10",
+                        comment: "I can't resist, Asa is just too handsome! The art style is exactly to my taste, and if there's any merchandise available, I would definitely snap it up.",
+                        date: "2024.4.15 03:46:23"
+                    }
+                ];
+                // 存储预设评论到 localStorage
+                localStorage.setItem('commentsList', JSON.stringify(initialComments));
+            }
+        }
+    
+
+        function displayComments() {
+            var commentsList = JSON.parse(localStorage.getItem('commentsList')) || [];
+            var commentsDisplay = document.getElementById('comments-display');
+            commentsDisplay.innerHTML = '';
+
+            commentsList.reverse().forEach(function(comment) {
+                // 直接使用原始日期字符串，假设它已经是正确格式
+                var formattedDate = comment.date; // 这里假设 date 已经是 '2024.4.14 22:01:32' 这样的格式
+
+                var commentElement = document.createElement('div');
+                commentElement.className = 'comment';
+                commentElement.innerHTML = `
+                    <div class="comment-score">Score: ${comment.score}</div>
+                    <div class="comment-text">${comment.comment}</div>
+                    <div class="comment-date">${formattedDate}</div>
+                `;
+                commentsDisplay.appendChild(commentElement);
+            });
+        }
+
+
+
+    </script>
+</body>
+</html>
