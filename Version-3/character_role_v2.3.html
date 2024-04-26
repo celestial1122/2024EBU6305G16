@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Miss Peregrine's Home for Peculiar Children</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+       
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Lora", serif;
+      }
+      nav {
+        background-color: #adadad;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        display: inline-block;
+        font-weight: 1000;
+      }
+      .top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80px;
+        font-family: "Lobster", cursive;
+      }
+        
+      .banner-image {
+        display: flex; /* 使用Flexbox来对齐子元素 */
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中，如果需要的话 */
+        width: 100%; /* 确保容器占满全宽 */
+        margin-top: 40px;
+      }
+      
+      .banner-image img {
+        width: 100%; /* 图片宽度设置为100%，但不会超过容器宽度 */
+        max-width: 80%; /* 图片最大宽度限制为700px */
+        height: auto; /* 高度自动调整，保持图片宽高比 */
+        border-radius: 20px; /* 设置圆角边框 */
+        margin: auto; /* 如果Flexbox无效，这将帮助图片水平居中 */
+        margin-bottom: 50px;
+      }
+
+      .content-container {
+        min-height: 100vh; /* 使用视口高度，确保内容至少占满整个屏幕高度 */
+        padding-bottom: 60px; /* 留出足够空间放置设计师图像 */
+        position: relative; /* 作为设计师图像的定位上下文 */
+        display: flex;
+        flex-direction: row; /* 使子元素垂直排列 */
+        align-items: flex-start; /* 子元素顶部对齐 */
+        justify-content: space-between;
+        width: 80%; /* 容器宽度 */
+        padding: 20px;
+      }
+
+      .left-images {
+        display: flex;
+        flex-direction: column;
+        width: 70%; /* 左侧容器宽度占据父容器的50% */
+        margin-left: 80px; /* 整个左侧容器的内边距 */
+      }
+
+      .left-images img {
+        border-radius: 25px;
+        box-shadow: 0 0 10px 12px rgba(0, 0, 0, 0.5);
+        margin-bottom: 80px; /* 图片之间的间隔设置为30px */
+        max-width: 100%; /* 图片宽度设置为容器宽度的80% */
+        margin-left: auto; /* 图片左边缘自动缩进 */
+        margin-right: auto; /* 图片右边缘自动缩进 */
+        height: auto; /* 高度自动以保持宽高比 */
+      }
+
+      .right-text-container {
+        width: 65%; /* 右侧容器宽度占据父容器的50% */
+        padding: 20px; /* 整个右侧容器的内边距 */
+        position: relative;
+        align-items: center; /* 确保文本水平居中对齐 */
+        flex-direction: column; /* 设置为列布局 */
+        /* 保持其他样式不变 */
+        background-color: rgb(238, 238, 238, 0.6);
+        left: 120px;
+        height: 1060px;
+      }
+
+      .background-image {
+        position: absolute;
+        top: 0;
+        left: 0; /* 左边缘缩进0px */
+        width: 100%; /* 背景图宽度设置为容器宽度的35% */
+        height: auto; /* 高度自动以保持宽高比 */
+
+        z-index: -1;
+        border-radius: 25px;
+        box-shadow: 0 0 10px 12px rgba(0, 0, 0, 0.5);
+        margin-left: auto; /* 图片左边缘自动缩进 */
+        margin-right: auto; /* 图片右边缘自动缩进 */
+        height: auto; /* 高度自动以保持宽高比 */
+      }
+      .background-image img {
+        position: absolute;
+        top: 0;
+        right: 0; /* 改为右对齐 */
+        width: 100%; /* 背景图占右侧容器的50% */
+        height: 100%; /* 高度设置为容器的全高 */
+        opacity: 0.5; /* 适当调整透明度以确保文本可见 */
+        z-index: -1; /* 确保背景图在文字之下 */
+      }
+      .character-name,
+      .character-description {
+        position: relative;
+        color: rgb(0, 0, 0); /* 文字颜色设置为白色以提高可读性 */
+        z-index: 1; /* 确保文字在背景图之上 */
+        padding: 8px 30px; /* 增加内边距 */
+        /* margin-bottom: 5em;  增加段落间距 */
+      }
+      .character-name {
+        font-family: "Lobster", cursive;
+        font-size: 24px;
+        /*  margin-bottom: 4em;  标题与第一段文字之间空7行 */
+      }
+
+      .character-description {
+        font-family: "Lora", serif;
+        font-size: 20px;
+        line-height: 45px;
+        line-height: 45px;
+        max-width: 700px; /* 文字块宽度设置为150px */
+        /*  margin-bottom: 9em; 段落之间空5行 */
+        margin-left: 50px; /* 文字块左边缘与标题对齐 */
+      }
+
+      .designer-image img {
+        width: 100%; /* 页面的全部宽度减去40px */
+        height: auto;
+        margin-top: 20px;
+        /* 保持其他样式不变 */
+      }
+
+      .designer-image {
+        width: calc(100% - 40px); /* Full width of the page */
+        height: auto;
+        margin-top: 20px;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <h1>Miss Peregrine's Home for Peculiar Children</h1>
+    </div>
+
+    <nav>
+      <a href="Homepage.html">Homepage</a>
+      <a href="Story Summary.html">Story Summary</a>
+      <a href="Character Role.html">Character Role</a>
+      <a href="Behind The Scenes.html">Behind The Scenes</a>
+      <a href="Comments.html">Comments</a>
+    </nav>
+
+    <div class="banner-image">
+      <img
+        src="https://s2.loli.net/2024/04/18/qicmPFJj6bgNKD3.jpg"
+        alt="Banner Image"
+      />
+    </div>
+
+   
+
+</body>
+    <div class="content-container">
+      <!-- 合并了图片和文字容器，现在它们将并排显示 -->
+      <div class="left-images">
+        <div class="left-images img">
+          <!-- 图片1 -->
+          <img
+            src="https://s2.loli.net/2024/04/18/6gEfCqekBc2Or8D.jpg"
+            alt="First Image"
+          />
+          <!-- 图片2 -->
+          <img
+            src="https://s2.loli.net/2024/04/18/Y743fdKJZpvxzRm.jpg"
+            alt="Second Image"
+          />
+          <!--<img src="https://s2.loli.net/2024/04/18/krwyLCumRlq8AFM.jpg"  alt="Third Image"-->
+        </div>
+      </div>
+
+      <div class="right-text-container">
+        <img
+          class="background-image"
+          src="https://s2.loli.net/2024/04/26/o23NC8qXZ91YbjQ.png"
+          alt="Background Image"
+        />
+        <img
+          class="background-image"
+          src="https://s2.loli.net/2024/04/26/sni6OgGq83ewmPu.png"
+          alt="Background Image"
+          style="top: 30vw"
+        />
+        <h2 class="character-name">Olive Elephanta (Lauren McCrostie)</h2>
+        <p class="character-description">
+          What's Her Rise? Olive is your not-so-ordinary girl with a talent
+          that's off the ground—literally. Why take the stairs when you can
+          levitate? From dodging chores by floating just out of reach to
+          snagging the cookie jar from the impossible shelf, she's redefining
+          living it up.
+        </p>
+        <p class="character-description">
+          Elevated Adventures: Olive's motto is simple: “Why walk when you can
+          soar?” Whether it's outsmarting the pesky laws of physics or floating
+          into action, she's always a lift above the rest. And when the chips
+          are down, she rises to the occasion, proving she's more than just hot
+          air.
+        </p>
+        <p class="character-description">
+          Prepare for takeoff with Olive as she turns gravity into her
+          playground. With Lauren McCrostie's touch, Olive elevates the peculiar
+          to new heights—because sometimes, the best way to shine is to rise
+          above it all and float on.
+        </p>
+      </div>
+    </div>
+
+    <div class="designer-image">
+      <img
+        src="https://s2.loli.net/2024/04/11/Nh3MGxH4i6DdAKJ.png"
+        alt="Webpage Designer Image"
+      />
+    </div>
+  </body>
+</html>
