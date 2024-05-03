@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Comments</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5;
+    }
+    nav {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 0;
+        text-align: center;
+        font-size: 130%;
+        height: 50px; /* 控制 nav 的初始高度 */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        display: inline-block;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 1%;
+    }
+    #hamburger-menu {
+        display: none;
+        font-size: 25px; /* 汉堡式图标的大小 */
+        cursor: pointer;
+        position: absolute; /* 使用绝对定位 */
+        right: 20px; /* 距离右边界20px */
+        top: 5px; /* 距离顶部10px */
+    }
+    .comments-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .comment {
+        border-bottom: 1px solid #e1e1e1;
+        padding: 15px 0;
+    }
+    .comment:last-child {
+        border-bottom: 0;
+    }
+    .comment-score {
+        color: #888;
+        font-size: 14px;
+    }
+    .comment-text {
+        margin: 5px 0;
+    }
+    .comment-date {
+        text-align: right;
+        color: #aaa;
+        font-size: 12px;
+    }
+    img.full-width {
+        width: 100%;
+        display: block; 
+        height: auto;
+        margin-bottom: 20px; 
+        margin-top: 49px; /* 留出足够空间以防止导航栏覆盖 */
+    }
+    .pagination {
+        text-align: right; /* 将文本对齐设置为右对齐 */
+        margin-top: 10px;
+        padding: 5px; /* 添加一些内边距以确保按钮不会紧贴容器边缘 */
+    }
+    .pagination button {
+        padding: 5px 10px;
+        margin: 0 5px;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px; /* 可能需要调整字体大小以适应新的符号 */
+    }
+
+    .pagination button:disabled {
+        background-color: #ccc;
+    }
+
+    /* 小屏幕设备的媒体查询 */
+    @media only screen and (max-width: 768px) {
+        #hamburger-menu {
+            display: block; /* 在小屏幕上显示汉堡式菜单 */
+        }
+
+        nav a {
+            display: none; /* 隐藏其他菜单项 */
+        }
+
+        /* 当菜单打开时显示菜单项 */
+        nav.active a {
+            display: block; /* 显示链接 */
+            width: 100%; /* 链接宽度撑满 */
+            padding: 10px 0; /* 添加适当的内边距 */
+            text-align: center; /* 文本居中 */
+            color: #ffffff;
+            background-color: transparent; /* 去除链接背景 */
+            text-decoration: none;
+            font-size: 18px; /* 字体大小适中 */
+        }
+
+        nav.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; /* 只需足够的高度以容纳所有链接 */
+            background-color: #000; /* 维持背景色 */
+            display: flex;
+            flex-direction: column; /* 垂直布局 */
+            justify-content: flex-start; /* 从顶部开始排列 */
+            padding: 35px 0 10px; /* 顶部留出足够空间，底部适当间隔 */
+            box-sizing: border-box; /* 包括内边距在宽度内 */
+        }
+    }
+
+    /* 针对非常小屏幕设备的媒体查询 */
+    @media only screen and (max-width: 480px) {
+        #hamburger-menu {
+            display: block; /* 在小屏幕上显示汉堡式菜单 */
+        }
+
+        nav a {
+            display: none; /* 隐藏其他菜单项 */
+        }
+
+        /* 当菜单打开时显示菜单项 */
+        nav.active a {
+            display: block; /* 显示链接 */
+            width: 100%; /* 链接宽度撑满 */
+            padding: 8px 0; /* 添加适当的内边距 */
+            text-align: center; /* 文本居中 */
+            color: #ffffff;
+            background-color: transparent; /* 去除链接背景 */
+            text-decoration: none;
+            font-size: 16px; /* 字体大小适中 */
+        }
+
+        nav.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; /* 只需足够的高度以容纳所有链接 */
+            background-color: #000; /* 维持背景色 */
+            display: flex;
+            flex-direction: column; /* 垂直布局 */
+            justify-content: flex-start; /* 从顶部开始排列 */
+            padding: 35px 0 8px; /* 顶部留出足够空间，底部适当间隔 */
+            box-sizing: border-box; /* 包括内边距在宽度内 */
+        }
+    }
+    
+</style>
+</head>
+<body>
+    <!-- 菜单栏 -->
+<nav>
+    <div id="hamburger-menu" onclick="toggleMenu()">☰</div>
+    <a href="homepage.html">Homepage</a>
+    <a href="example.html">Story Summary</a>
+    <a href="#">Character Role</a>
+    <a href="#">Behind The Scenes</a>
+    <a href="Comment.html">Comments</a>
+</nav>
+    <img src="https://s2.loli.net/2024/04/15/dpCETUQV8HGlqN2.jpg" alt="Top Image" class="full-width">
+    <div class="comments-container">
+        <h1>History Comments</h1>
+        <div id="comments-display"></div>
+        <div class="pagination">
+            <button onclick="prevPage()">&lt;</button> 
+            <span id="page-info"></span>
+            <button onclick="nextPage()">&gt;</button> 
+        </div>
+    </div>
+    <img src="https://s2.loli.net/2024/04/06/VIkOrExDlTMoKY5.png" alt="Bottom Image" class="full-width">
+
+    
+    <script>
+        window.onload = function() {
+            initializeComments();
+            displayComments();
+        };
+
+        function initializeComments() {
+            if (!localStorage.getItem('commentsList')) {
+                // 预设的评论数据
+                var initialComments = [
+                    {
+                        score: "6",
+                        comment: "The editing is somewhat lacking in the climax. Although the story's moral is somewhat trite, the plot is relatively rich, and the construction of the timeline at the end may require a second viewing to understand. In this film, Burton's style is primarily embodied through the character Enoch.",
+                        date: "2024.4.13 13:15:08"
+                    },
+                    {
+                        score: "8",
+                        comment: "Although I like the fantasy setting, and Eva Green is captivating, it seems that Tim Burton's films are more suited to Helena Bonham Carter... The film fails to break away from the clichéd children's movie formula, with adults still appearing more foolish than the children, the main villain doesn't play a significant role, and the climax is somewhat lackluster. However, the skeleton battle is the most exciting part of the film.",
+                        date: "2024.4.14 9:37:49"
+                    },
+                    {
+                        score: "2",
+                        comment: "High expectations led to disappointment. The trailer seems to contain all the highlights of the movie. The storyline is mediocre, and the layout is ordinary. The fantasy elements are rather childish, more suitable for children and lacking in depth. The male lead is unappealing, appears confused, fails to inspire his companions, and is even somewhat off-putting.",
+                        date: "2024.4.14 22:01:32"
+                    },
+                    {
+                        score: "10",
+                        comment: "I can't resist, Asa is just too handsome! The art style is exactly to my taste, and if there's any merchandise available, I would definitely snap it up.",
+                        date: "2024.4.15 3:46:23"
+                    }
+                ];
+                // 存储预设评论到 localStorage
+                localStorage.setItem('commentsList', JSON.stringify(initialComments));
+            }
+        }
+    
+
+        // 全局变量来存储当前页数和每页显示的评论数
+        var currentPage = 1;
+        var commentsPerPage = 10;
+
+        function displayComments() {
+            var commentsList = JSON.parse(localStorage.getItem('commentsList')) || [];
+            var commentsDisplay = document.getElementById('comments-display');
+            var startIndex = (currentPage - 1) * commentsPerPage;
+            var endIndex = startIndex + commentsPerPage;
+
+            // 将评论列表逆序，使最新的评论显示在最上方
+            commentsList.reverse();
+
+            // 获取当前页的评论
+            var pageComments = commentsList.slice(startIndex, endIndex);
+            commentsDisplay.innerHTML = '';
+
+            pageComments.forEach(function(comment) {
+                var formattedDate = comment.date;
+                var commentElement = document.createElement('div');
+                commentElement.className = 'comment';
+                commentElement.innerHTML = `
+                    <div class="comment-score">Score: ${comment.score}</div>
+                    <div class="comment-text">${comment.comment}</div>
+                    <div class="comment-date">${formattedDate}</div>
+                `;
+                commentsDisplay.appendChild(commentElement);
+            });
+
+            // 更新翻页信息
+            updatePagination(commentsList.length);
+        }
+
+
+        function updatePagination(totalComments) {
+            var pageInfo = document.getElementById('page-info');
+            var totalPage = Math.ceil(totalComments / commentsPerPage);
+            pageInfo.innerHTML = `Page ${currentPage} of ${totalPage}`;
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayComments();
+            }
+        }
+
+        function nextPage() {
+            var totalComments = JSON.parse(localStorage.getItem('commentsList')).length;
+            var totalPage = Math.ceil(totalComments / commentsPerPage);
+            if (currentPage < totalPage) {
+                currentPage++;
+                displayComments();
+            }
+        }
+
+
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+
+    </script>
+</body>
+</html>
