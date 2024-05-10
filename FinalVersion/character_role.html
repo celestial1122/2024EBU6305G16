@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Miss Peregrine's Home for Peculiar Children</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<script type="text/javascript" src="assets/js/pages.js"></script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<!-- Link to Swiper's CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+	<style>
+           
+		nav {
+			background-color: #000000;
+			color: #ffffff;
+			padding: 0;
+			text-align: center;
+			font-size: 130%;
+			height: 50px; /* 控制 nav 的初始高度 */
+			position: fixed;
+			width: 100%;
+			top: 0;
+			left: 0;
+			z-index: 1000;
+		}
+		nav a {
+			color: #ffffff;
+			text-decoration: none;
+			margin: 0 10px;
+			display: inline-block;
+			font-weight: 700;
+			text-align: center;
+			margin-top: 1%;
+		}
+		.top {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 80px;
+			/* top: 50px;  */
+			font-family: 'Georgia', serif; /* Example of changing fonts */
+		}
+		#hamburger-menu {
+			display: none;
+			font-size: 25px; /* 汉堡式图标的大小 */
+			cursor: pointer;
+			position: absolute; /* 使用绝对定位 */
+			right: 20px; /* 距离右边界20px */
+			top: 5px; /* 距离顶部10px */
+		}
+		 /* 小屏幕设备的媒体查询 */
+		 @media only screen and (max-width: 768px) {
+        #hamburger-menu {
+            display: block; /* 在小屏幕上显示汉堡式菜单 */
+        }
+
+        nav a {
+            display: none; /* 隐藏其他菜单项 */
+        }
+
+        /* 当菜单打开时显示菜单项 */
+        nav.active a {
+            display: block; /* 显示链接 */
+            width: 100%; /* 链接宽度撑满 */
+            padding: 10px 0; /* 添加适当的内边距 */
+            text-align: center; /* 文本居中 */
+            color: #ffffff;
+            background-color: transparent; /* 去除链接背景 */
+            text-decoration: none;
+            font-size: 18px; /* 字体大小适中 */
+        }
+
+        nav.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; /* 只需足够的高度以容纳所有链接 */
+            background-color: #000; /* 维持背景色 */
+            display: flex;
+            flex-direction: column; /* 垂直布局 */
+            justify-content: flex-start; /* 从顶部开始排列 */
+            padding: 35px 0 10px; /* 顶部留出足够空间，底部适当间隔 */
+            box-sizing: border-box; /* 包括内边距在宽度内 */
+        }
+    }
+
+    /* 针对非常小屏幕设备的媒体查询 */
+    @media only screen and (max-width: 480px) {
+        #hamburger-menu {
+            display: block; /* 在小屏幕上显示汉堡式菜单 */
+        }
+
+        nav a {
+            display: none; /* 隐藏其他菜单项 */
+        }
+
+        /* 当菜单打开时显示菜单项 */
+        nav.active a {
+            display: block; /* 显示链接 */
+            width: 100%; /* 链接宽度撑满 */
+            padding: 8px 0; /* 添加适当的内边距 */
+            text-align: center; /* 文本居中 */
+            color: #ffffff;
+            background-color: transparent; /* 去除链接背景 */
+            text-decoration: none;
+            font-size: 16px; /* 字体大小适中 */
+        }
+
+        nav.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; /* 只需足够的高度以容纳所有链接 */
+            background-color: #000; /* 维持背景色 */
+            display: flex;
+            flex-direction: column; /* 垂直布局 */
+            justify-content: flex-start; /* 从顶部开始排列 */
+            padding: 35px 0 8px; /* 顶部留出足够空间，底部适当间隔 */
+            box-sizing: border-box; /* 包括内边距在宽度内 */
+        }
+    }
+            .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            width: auto; /* Width should be auto or set to the width of the content */
+            /* Optional: for centered content within each slide */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+            
+            .swiper-container {
+                width: 100%;
+                /* max-width: 800px; Adjust this as necessary to fit your design */
+      
+                margin: auto;
+                overflow: hidden; /* Prevents overflow of slides */
+            }
+
+            .swiper-slide {
+                display: block; /* Ensures slides do not flex */
+                width: 100%;
+            }
+
+
+
+            .swiper-slide img {
+                max-width: 100%; /* Limits image width to prevent overflow */
+                height: auto; /* Height is automatic*/
+                max-height: 500px; /* Adjust based on your preference to keep images the same size */
+                object-fit: cover; /* Covers the slide area while maintaining aspect ratio */
+                border-radius: 15px; /* Rounded corners */
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+            }
+           
+        
+       
+            button {
+                margin: 10px;
+                background-color: #5cb85c;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #4cae4c;
+            }
+
+            #feedback {
+                margin-top: 20px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            #next-button {
+                margin-top: 10px;
+                background-color: #007bff;
+            }
+
+            #next-button:hover {
+                background-color: #0056b3;
+            }
+  
+        </style>
+    </head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<div class="top">
+					<!-- <h1>Miss Peregrine's Home for Peculiar Children</h1> -->
+				</div>
+	
+				<nav>
+					<div id="hamburger-menu" onclick="toggleMenu()">☰</div>
+					<a href="homepage.html">Homepage</a>
+					<a href="Story Summary.html">Story Summary</a>
+					<a href="character_role.html">Character Role</a>
+					<a href="behind the scene.html">Behind The Scenes</a>
+					<a href="Comment.html">Comments</a>
+				</nav>
+
+				<!-- Banner -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1><strong>Spotlight on the Characters of Miss Peregrine’s :</strong> A captivating adventure world </h1>
+							<p class="major">Explore the mysterious island and discover the secrets of the peculiar children and their special abilities.</p>
+							<ul class="actions stacked">
+								<li><a href="#first" class="button large wide smooth-scroll-middle">Explore Now</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="https://s2.loli.net/2024/05/08/7KboNfnzSUtThmc.png" >  alt="" />
+						</div>
+					</section>
+
+				<!-- One -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+						<div class="content">
+							<h2>Jacob Portman (Asa Butterfield)</h2>
+						
+							<p>Just your average American teen until life went “Hold my beer.” Post-grandpa's spooky demise, Jacob's life gets a fantasy reboot. Now he sees monsters that are RSVP'ed to the “Invisible to Normals” party. Protector of the peculiar? You bet.</p>
+							<ul class="actions stacked">
+								<li><a href="javascript:goNext('character_role_v2.1.html');" class="button">Learn More</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="https://s2.loli.net/2024/05/07/fasIJCHKdpBEhe1.jpg" alt="" />
+						</div>
+					</section>
+
+				<!-- TWO -->
+					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Miss Peregrine (Eva Green)</h2>
+							<p>Bird woman, time-loop manager, protector of the peculiar. Miss Peregrine's got the whole package. Her daily routine includes keeping kids safe and bending time -- casual stuff.</p>
+							<ul class="actions stacked">
+								<li><a href="javascript:goNext('character_role_v2.2.html');" class="button">Learn More</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="https://s2.loli.net/2024/05/07/psKgfim985Z7WkM.jpg"  alt="" />
+						</div>
+					</section>
+
+				<!-- three -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Olivia  Lively (Lauren McCrostie)</h2>
+							<p>What's Her Deal?  Meet Olivia, a girl who never needs a ladder.  Why?  She's got the power of levitation, making gravity her plaything.  School high jump champ without even trying.</p>
+							<ul class="actions stacked">
+								<li><a href="javascript:goNext('character_role_v2.3.html');" class="button">Learn More</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="https://s2.loli.net/2024/05/07/RA4cnsNUjBrePC5.jpg"  alt="" />
+						</div>
+					</section>
+
+				<!-- four -->
+				<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+					<div class="content">
+						<h2>Emma Bloom (Ella Purnell)</h2>
+						<p>Emma, wielding fire like it's her personal plaything, is the squad's unofficial captain.  Bravery?  Check.  Loyalty?  Double check.</p>
+						<ul class="actions stacked">
+							<li><a href="javascript:goNext('character_role_v2.4.html');" class="button">Learn More</a></li>
+						</ul>
+					</div>
+					<div class="image">
+						<img src="https://s2.loli.net/2024/05/07/3EszaXtHjxymRp6.jpg"   alt="" />
+					</div>
+				</section>
+
+				<!-- Gallery1 -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<h2>Character Gallery</h2>
+							
+						</div>
+
+						<!-- Gallery1 -->
+							<div class="gallery style2 medium lightbox onscroll-fade-in">
+								<article>
+									<a href="https://sm.ms/image/DGMSFaNLOvzCs6T"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/DGMSFaNLOvzCs6T.png"   alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/DUbNVECZykQhIjK"   class="image">
+										<img src="https://s2.loli.net/2024/05/08/DUbNVECZykQhIjK.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/FuAPvtqR2fKwrLk"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/FuAPvtqR2fKwrLk.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/54XBhsHlyDTUu2J"   class="image">
+										<img src="https://s2.loli.net/2024/05/08/54XBhsHlyDTUu2J.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/UE1Qi3yZWj6vxkP"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/UE1Qi3yZWj6vxkP.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/Rd7iuvbA4wVapDW"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/Rd7iuvbA4wVapDW.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/G2AmIwXyLkEO6lY"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/G2AmIwXyLkEO6lY.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/eKn1uw6hzXkLiPW"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/eKn1uw6hzXkLiPW.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/lgDE2VpTjyLJvkP"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/lgDE2VpTjyLJvkP.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/1bkdXSrKetwPqCu"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/1bkdXSrKetwPqCu.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/LgkUQscFvxqXhKm"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/LgkUQscFvxqXhKm.png"  alt="" />
+									</a>
+									
+								</article>
+								
+							</div>
+
+					</section>
+
+					<!-- Gallery2 -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<h2>Beautiful Character Stills</h2>
+					
+						</div>
+
+						<!-- Gallery2 -->
+							<div class="gallery style2 medium lightbox onscroll-fade-in">
+								<article>
+									<a href="https://sm.ms/image/RFqQOPvZs6laJDb"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/RFqQOPvZs6laJDb.png"   alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/n8bHjYIPiaeEthR"   class="image">
+										<img src="https://s2.loli.net/2024/05/08/n8bHjYIPiaeEthR.png"   alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/4wticPTIjR7dzSb" class="image">
+										<img src="https://s2.loli.net/2024/05/08/4wticPTIjR7dzSb.png"   alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/Kwf9jehrBH35z6v" target="_blank"   class="image">
+										<img src="https://s2.loli.net/2024/05/08/Kwf9jehrBH35z6v.png"   alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/gK41mAWHjXJcIsw"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/gK41mAWHjXJcIsw.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/tXIDxTjsp2vKRLh"  class="image">
+										<img src="https://s2.loli.net/2024/05/08/tXIDxTjsp2vKRLh.png"  alt="" />
+									</a>
+									
+								</article>
+								<article>
+									<a href="https://sm.ms/image/WuslX6MU7tZncgh"   class="image">
+										<img src="https://s2.loli.net/2024/05/08/WuslX6MU7tZncgh.png"   alt="" />
+									</a>
+									
+								</article>
+								
+								<article>
+									<a href="https://sm.ms/image/coaf6PHIMFBQN7S"   class="image">
+										<img src="https://s2.loli.net/2024/05/08/coaf6PHIMFBQN7S.png"   alt="" />
+									</a>
+									
+								</article>
+								
+							</div>
+
+					</section>
+
+				
+
+								
+
+
+
+
+				
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							
+						</div>
+					</footer>
+
+			</div></div>
+        <div class="movie-content">
+            <a href="https://sm.ms/image/VIkOrExDlTMoKY5" target="_blank">
+                <img src="https://s2.loli.net/2024/04/06/VIkOrExDlTMoKY5.png" alt="Promotional Content Image">
+            </a>
+        </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<!-- Note: Only needed for demo purposes. Delete for production sites. -->
+			<script src="assets/js/demo.js"></script>
+
+
+    <div class="music-player">
+      <audio id="myAudio" src="click-button-166324.mp3" loop></audio>
+      <button id="btnMusic" onclick="playPause()"><img id="buttonImage" src="musicB.png" style="width:30px;height: 30px;" alt="Button Image"></button>
+    </div>
+    <audio id="clickAudio" src="mouse-click-153941.mp3" preload="auto"></audio>
+    <audio id="myAudio" src="click-button-166324.mp3" loop></audio>
+	</body>
+</html>
+<script type="text/javascript">
+	
+
+</script>
